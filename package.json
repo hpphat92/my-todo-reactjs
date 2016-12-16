@@ -1,0 +1,25 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+	  "start": "webpack-dev-server --config --hot webpack.config.js --progress --profile --watch --content-base ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpphat92/my-todo-reactjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hpphat92/my-todo-reactjs/issues"
+  },
+  "homepage": "https://github.com/hpphat92/my-todo-reactjs#readme",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
