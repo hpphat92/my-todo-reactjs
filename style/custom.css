@@ -1,0 +1,26 @@
+.todo-container {
+    margin: 10px 0;
+    min-height: 150px;
+    height: 100%;
+    display: block;
+    background: rgba(255, 255, 0, 0.32);
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px #aaa;
+    padding: 10px;
+}
+
+.todo-container .todo-content .content {
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    font-style: oblique;
+    font-size: 23px;
+}
+.todo-container .todo-content .created-date {
+    position: absolute;
+    bottom: 10px;
+}
+.todo-container .btn-action {
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+}

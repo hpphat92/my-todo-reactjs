@@ -7,8 +7,8 @@ class Header extends React.Component {
       fontSize: '20px'
     }
     return (
-      <div>
-        <h4 style={headerStyle}>My Todo Application</h4>
+      <div className="label">
+        <h4 className="class-1" style={headerStyle}>My Todo Application</h4>
       </div>
     );
   }

@@ -21,21 +21,28 @@ class Todo extends React.Component {
     this.props.onSave && this.props.onSave.call(this, this.props.content.id, newContent);
     this.cancelEdit();
   }
-  removeTodo(){
+
+  removeTodo() {
     this.props.onRemove && this.props.onRemove();
   }
+
   render() {
     if (!this.state.isEditting) {
       return (
-        <div>
-          <b>{this.props.index}</b> -
-          {this.props.content.content} -
-          <em>{this.props.content.createdDate.toDateString()}</em> -
-          <em>{this.props.content.updatedDate && this.props.content.updatedDate.toDateString()}</em>
-          <span>
-              [<a href="javascript:void(0)" onClick={this.editTodo}>Edit</a>] [<a href="javascript:void(0)"
-                                                                                  onClick={this.removeTodo}>Remove</a>]
-        </span>
+        <div className="todo-container">
+          <div className="todo-content">
+            <div className="content">
+              {this.props.content.content}
+            </div>
+            <div className="created-date small">
+              <em>{this.props.content.createdDate.toDateString()}</em> -
+              <em>{this.props.content.updatedDate && this.props.content.updatedDate.toDateString()}</em>
+            </div>
+          </div>
+          <div className="btn-action">
+            <button className="btn btn-xs btn-primary" onClick={this.editTodo}>Edit</button>
+            <button className="btn btn-xs btn-default" onClick={this.removeTodo}>Remove</button>
+          </div>
         </div>
       );
     } else {

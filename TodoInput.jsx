@@ -40,10 +40,12 @@ class Body extends React.Component {
         <button onClick={this.onCancelTodo}>Cancel</button>
       ) : (null);
     return (
-      <div>
-        <input type="text" value={this.state.content} onChange={this.updateState}/>
-        <button onClick={this.addTodo} disabled={!this.state.content}>Save</button>
-        {cancelButton}
+      <div className="form-inline">
+        <div className="form-group">
+          <input className="form-control" type="text" value={this.state.content} onChange={this.updateState}/>
+          <button className="btn btn-primary" onClick={this.addTodo} disabled={!this.state.content}>Save</button>
+          {cancelButton}
+        </div>
       </div>
     );
   }

@@ -52,16 +52,19 @@ class Body extends React.Component {
 
   render() {
     let listTodoHtml = (
-      this.state.listTodoes.map((todo, index) => <Todo onRemove={this.removeTodo.bind(this, todo.id)}
-                                                       onSave={this.updateTodo.bind(this)} key={todo.id}
-                                                       content={todo} index={index + 1}/>)
+      this.state.listTodoes.map((todo, index) => <div className="col-md-2"><Todo
+        onRemove={this.removeTodo.bind(this, todo.id)}
+        onSave={this.updateTodo.bind(this)} key={todo.id}
+        content={todo} index={index + 1}/></div>)
     );
     return (
       <div>
         <div>Add new Todo</div>
         <TodoInput onSave={this.addNewTodo}/>
         <div>List Todo ({this.state.listTodoes.length})</div>
-        {listTodoHtml}
+        <div className="row">
+          {listTodoHtml}
+        </div>
       </div>
     );
   }
