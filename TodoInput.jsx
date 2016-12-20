@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux'
+
+import {addTodo, editTodo, toggleTodoEditting} from './Actions';
 
 class Body extends React.Component {
   constructor(props) {
@@ -13,7 +16,7 @@ class Body extends React.Component {
 
   componentWillMount() {
     this.setState({
-      content: this.props.content || ''
+      content: this.props.todo.content || ''
     })
   }
 
@@ -22,33 +25,50 @@ class Body extends React.Component {
   }
 
   addTodo() {
-    this.props.onSave.call(this, this.state.content);
+    this.props.onSave.call(this, this.state.content, this.props.todo && this.props.todo.id || null);
     this.setState({
       content: ''
     })
   }
 
   onCancelTodo() {
-    this.props.onRemove && this.props.onRemove();
+    this.props.onCancelEditting && this.props.onCancelEditting(this.props.todo && this.props.todo.id);
     this.setState({
       content: ''
     })
   }
 
   render() {
-    let cancelButton = this.props.onRemove ? (
-        <button onClick={this.onCancelTodo}>Cancel</button>
-      ) : (null);
     return (
       <div className="form-inline">
         <div className="form-group">
           <input className="form-control" type="text" value={this.state.content} onChange={this.updateState}/>
           <button className="btn btn-primary" onClick={this.addTodo} disabled={!this.state.content}>Save</button>
-          {cancelButton}
+          {this.props.todo.id ?
+            <button className="btn btn-default" onClick={this.onCancelTodo.bind(this)}>Cancel</button> : null}
         </div>
       </div>
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSave: (content, id) => {
+      if (id) {
+        dispatch(editTodo(id, content));
+      } else {
+        dispatch(addTodo(content));
+      }
+    },
+    onCancelEditting: (id) => {
+      dispatch(toggleTodoEditting(id));
+    }
+  }
+};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todo: ownProps.todo || {}
+  }
+}
 
-export default Body;
+export default connect(mapStateToProps, mapDispatchToProps)(Body);

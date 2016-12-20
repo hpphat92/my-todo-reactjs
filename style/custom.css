@@ -1,4 +1,5 @@
 .todo-container {
+    user-select: none;
     margin: 10px 0;
     min-height: 150px;
     height: 100%;
@@ -9,16 +10,23 @@
     padding: 10px;
 }
 
+.todo-container.completed {
+    text-decoration: line-through;
+    background-color: #ccc;
+}
+
 .todo-container .todo-content .content {
     text-overflow: ellipsis;
     word-wrap: break-word;
     font-style: oblique;
     font-size: 23px;
 }
+
 .todo-container .todo-content .created-date {
     position: absolute;
     bottom: 10px;
 }
+
 .todo-container .btn-action {
     position: absolute;
     bottom: 30px;

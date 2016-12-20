@@ -6,7 +6,7 @@ module.exports = {
 
   output: {
     path: './',
-    filename: 'index.js',
+    filename: 'index.build.js',
   },
 
   devServer: {
@@ -22,7 +22,8 @@ module.exports = {
         loader: 'babel-loader',
 
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          "plugins": ["transform-es2015-destructuring", "transform-object-rest-spread"]
         }
       },
       {
