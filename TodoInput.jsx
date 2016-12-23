@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {addTodo, editTodo, toggleTodoEditting} from './Actions';
 
-class Body extends React.Component {
+class TodoInput extends React.Component {
   constructor(props) {
     super(props); //Call this function because 'this' is not allowed before super().
     this.state = {
@@ -71,4 +71,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);

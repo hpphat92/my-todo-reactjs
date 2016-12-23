@@ -6,17 +6,6 @@ class Body extends React.Component {
   constructor(props) {
     super(props);//Call this function because 'this' is not allowed before super().
   }
-
-  updateTodo(todoId, content) {
-    let listTodo = this.state.listTodoes;
-    let indexMatching = listTodo.findIndex(t => t.id === todoId);
-    if (indexMatching >= 0) {
-      listTodo[indexMatching].content = content;
-      listTodo[indexMatching].updatedDate = new Date();
-      this.setState({listTodoes: listTodo});
-    }
-  }
-
   render() {
     let listTodoHtml = (
       this.props.listTodoes.map((todo, index) => <div key={todo.id} className="col-md-2"><Todo
