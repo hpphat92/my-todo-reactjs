@@ -11,7 +11,9 @@ module.exports = {
 
   devServer: {
     inline: true,
-    port: 8080
+    port: 8080,
+    historyApiFallback: true,
+    contentBase: './'
   },
 
   module: {
@@ -35,7 +37,7 @@ module.exports = {
         // loaders: ['to-string-loader', 'css-loader', 'resolve-url-loader']
       },
       {test: /\.(svg|woff|woff2|ttf|eot)$/i, loader: "file?name=/assets/fonts/[name].[ext]"},
-      {test: /\.(png|jpg|jpeg|gif|bmp)$/i, loader: "file?name=/assets/images/[name].[ext]"},
+      {test: /\.(png|jpg|jpeg|gif|bmp)$/i, loader: "url-loader?limit=10000"},
       /*
        * Json loader support for *.json files.
        *
