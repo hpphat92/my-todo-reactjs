@@ -30,4 +30,5 @@ const mapStateToProps = (state) => {
   }
 };
 
+// Create new component
 export default connect(mapStateToProps, null)(Body);

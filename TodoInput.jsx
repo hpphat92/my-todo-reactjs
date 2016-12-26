@@ -25,6 +25,9 @@ class TodoInput extends React.Component {
   }
 
   addTodo() {
+    // We of course not declare onSave function of this component at parent component
+    // Refer to: Body.jsx for more information
+    // We declare this onSave at mapDispatchToProps function
     this.props.onSave.call(this, this.state.content, this.props.todo && this.props.todo.id || null);
     this.setState({
       content: ''
@@ -32,7 +35,7 @@ class TodoInput extends React.Component {
   }
 
   onCancelTodo() {
-    this.props.onCancelEditting && this.props.onCancelEditting(this.props.todo && this.props.todo.id);
+    this.props.onCancelEditting(this.props.todo && this.props.todo.id);
     this.setState({
       content: ''
     })
@@ -51,24 +54,46 @@ class TodoInput extends React.Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSave: (content, id) => {
-      if (id) {
-        dispatch(editTodo(id, content));
-      } else {
-        dispatch(addTodo(content));
-      }
-    },
-    onCancelEditting: (id) => {
-      dispatch(toggleTodoEditting(id));
+
+// Tips: mapDispatchToProps is where you declare function to dispatch to redux to update global tree state
+// We of course declare other function here. but it is meanless.
+
+// We can use either first and second one declaration for mapDispatchToProps (I think the first one is better)
+// 1: Don't need to call dispatch.. just return the action object.
+const mapDispatchToProps = ({
+  onSave: (content, id) => {
+    if (id) {
+      return editTodo(id, content);
+    } else {
+      return addTodo(content);
     }
+  },
+  onCancelEditting: (id) => {
+    return toggleTodoEditting(id);
   }
-};
+});
+// 2: Call dispatch. Don't need to return object.
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onSave: (content, id) => {
+//       if (id) {
+//         dispatch(editTodo(id, content));
+//       } else {
+//         dispatch(addTodo(content));
+//       }
+//     },
+//     onCancelEditting: (id) => {
+//       dispatch(toggleTodoEditting(id));
+//     }
+//   }
+// };
+
+
+// For mapping state of global tree (of redux) into current component.
 const mapStateToProps = (state, ownProps) => {
   return {
     todo: ownProps.todo || {}
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoInput);

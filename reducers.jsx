@@ -11,6 +11,14 @@ function generateRandomId() {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
     s4() + '-' + s4() + s4();
 }
+
+// This is where we define global state tree
+// Example we have property gTodoesList in global tree
+// Each time some where dispatch an action, all reducer in each property is re computed and to produce the next state of current property after action is performed.
+// Each reducer is a function that accepted 2 parameters: Current state (undefined if initiaze) an the action dispatched. (action object is defined at the Actions.js file).
+// We have to return the next state of the current state property after the action is performed.
+
+// TODO: Research why we can't use ... (triple dot) operator (ES6).
 export default combineReducers({
   gTodoesList: (state = initialState, action) => {
     if (!action) {
