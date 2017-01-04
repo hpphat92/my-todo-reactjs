@@ -1,9 +1,13 @@
 import React from 'react';
 function log(msg, id) {
-  document.querySelector('#console').innerHTML += `<br><div class="msg ${id}">${msg}</div>.`;
+  if (document.querySelector('#console')) {
+    document.querySelector('#console').innerHTML += `<br><div class="msg ${id}">${msg}</div>.`;
+  }
 }
 function clear() {
-  document.querySelector('#console').innerHTML = "";
+  if (document.querySelector('#console')) {
+    document.querySelector('#console').innerHTML = "";
+  }
 }
 class ParentComp extends React.Component {
   constructor(props) {
@@ -20,8 +24,8 @@ class ParentComp extends React.Component {
   }
 
   shouldComponentUpdate() {
-    log(`Check should component update for parent component and return ${this.state.shouldComponentUpdatedBoolean}`,'parent');
-    return this.state.shouldComponentUpdatedBoolean;
+    log(`Check should component update for parent component and return ${!!this.state.shouldComponentUpdatedBoolean}. Value of this.state.x = ${this.state.x}`, 'parent');
+    return !!this.state.shouldComponentUpdatedBoolean;
   }
 
   updateStatus() {
@@ -33,14 +37,15 @@ class ParentComp extends React.Component {
   }
 
   componentDidUpdate() {
-    log('Parent Component DID re-rendered', 'parent');
+    log('Parent Component DID re-rendered. this.state.x = ' + this.state.x, 'parent');
   }
 
   componentWillUpdate() {
-    log('Parent Component WILL be re-rendered', 'parent');
+    log('Parent Component WILL be re-rendered. this.state.x = ' + this.state.x, 'parent');
   }
 
   render() {
+    log(`Rendering parent: this.state.x = ${this.state.x}`, 'parent');
     return (
       <div className="parent-comp">
         Parent state: {this.state.x} {!!this.state.shouldComponentUpdatedBoolean}
@@ -82,7 +87,7 @@ class NoProps extends React.Component {
   }
 
   shouldComponentUpdate() {
-    log('Check should component update for Component without props passed and return true', 'no-prop');
+    log('Check should component update for Component without props passed and return true. The value of this.state.x = ' + this.state.x, 'no-prop');
     return true;
   }
 
