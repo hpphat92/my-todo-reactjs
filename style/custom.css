@@ -32,3 +32,75 @@
     bottom: 30px;
     right: 15px;
 }
+
+.board {
+    display: table;
+}
+
+.row {
+    height: 120px;
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    background: #EEF;
+    border: 2px solid #aaa;
+    font-size: 80px;
+    text-align: center;
+}
+
+.cell.empty {
+    background: #f1f1f1;
+}
+
+.cell.empty:hover {
+    cursor: pointer;
+    background: #d5d5d5;
+}
+.should-component-update-demo {
+    position: relative;
+}
+.should-component-update-demo .parent-comp {
+    background: #becc4d;
+    width: 450px;
+    height: 400px;
+    border: 1px dashed #222;
+    padding: 10px;
+}
+.should-component-update-demo .child-no-props {
+    background: #e3ded4;
+    width: 400px;
+    height: 100px;
+    border: 1px dashed #111;
+    margin: 20px;
+    padding: 10px;
+}
+.should-component-update-demo .child-props {
+    background: #f3ced4;
+    width: 400px;
+    margin: 50px 10px;
+    height: 100px;
+    border: 0.5px dashed #111;
+    padding: 10px;
+}
+.should-component-update-demo #console{
+    position: relative;
+    top: 0;
+    left:0;
+    max-height: 300px;
+    overflow: auto;
+}
+.should-component-update-demo .console {
+    position: absolute;
+    top: 0;
+    left: 600px;
+}
+.pointer {
+    cursor: pointer;
+}
+.menu a, .block {
+    display: block;
+}

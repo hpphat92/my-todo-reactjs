@@ -4,7 +4,6 @@ import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import reducers from './reducers.jsx'
 import App from './App.jsx'
-console.log(reducers, App);
 
 let store = createStore(reducers);
 render(
