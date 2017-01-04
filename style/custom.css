@@ -64,7 +64,7 @@
     position: relative;
 }
 .parent {
-    color: #becc4d
+    color: #48702a
 }
 .no-prop {
     color: #573ee3
@@ -73,7 +73,8 @@
     color: #f30014
 }
 .should-component-update-demo .parent-comp {
-    background: #becc4d;
+    background: #48702a;
+    color: white;
     width: 450px;
     height: 400px;
     border: 1px dashed #222;
@@ -81,14 +82,21 @@
 }
 .should-component-update-demo .child-no-props {
     background: #573ee3;
+    color: white;
+    font-weight: bold;
     width: 400px;
     height: 100px;
     border: 1px dashed #111;
     margin: 20px;
     padding: 10px;
 }
+.should-component-update-demo button {
+    color: #333;
+}
 .should-component-update-demo .child-props {
     background: #f30014;
+    color: white;
+    font-weight: bold;
     width: 400px;
     margin: 50px 10px;
     height: 100px;

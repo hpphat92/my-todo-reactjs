@@ -33,11 +33,11 @@ class ParentComp extends React.Component {
   }
 
   componentDidUpdate() {
-    log('Parent Component Updated', 'parent');
+    log('Parent Component DID re-rendered', 'parent');
   }
 
   componentWillUpdate() {
-    log('Parent Component Will Be Updated', 'parent');
+    log('Parent Component WILL be re-rendered', 'parent');
   }
 
   render() {
@@ -76,6 +76,7 @@ class NoProps extends React.Component {
       <div className="child-no-props">
         Component without props passed (local state) x: {this.state.x}
         <button onClick={() => this.set(1)}>Change state x=1</button>
+        <button onClick={() => this.set(5)}>Change state x=5</button>
       </div>
     )
   }
@@ -86,7 +87,11 @@ class NoProps extends React.Component {
   }
 
   componentDidUpdate() {
-    log('Component without props passed re-rendered', 'no-prop');
+    log('Component without props passed DID re-rendered', 'no-prop');
+  }
+
+  componentWillUpdate() {
+    log('Component without props passed WILL be rendered', 'no-prop');
   }
 }
 class PropComponent extends React.Component {
@@ -103,11 +108,11 @@ class PropComponent extends React.Component {
   }
 
   componentDidUpdate() {
-    log(`Component with props passed rendered with next props: ${this.props.v}`, 'has-prop')
+    log(`Component with props passed DID rendered with next props: ${this.props.v}`, 'has-prop')
   }
 
   componentWillUpdate() {
-    log(`Component with props passed will be rendered with next props: ${this.props.v}`, 'has-prop')
+    log(`Component with props passed WILL be rendered with next props: ${this.props.v}`, 'has-prop')
   }
 }
 
