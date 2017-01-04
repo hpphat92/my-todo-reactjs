@@ -63,6 +63,15 @@
 .should-component-update-demo {
     position: relative;
 }
+.parent {
+    color: #becc4d
+}
+.no-prop {
+    color: #573ee3
+}
+.has-prop {
+    color: #f30014
+}
 .should-component-update-demo .parent-comp {
     background: #becc4d;
     width: 450px;
@@ -71,7 +80,7 @@
     padding: 10px;
 }
 .should-component-update-demo .child-no-props {
-    background: #e3ded4;
+    background: #573ee3;
     width: 400px;
     height: 100px;
     border: 1px dashed #111;
@@ -79,7 +88,7 @@
     padding: 10px;
 }
 .should-component-update-demo .child-props {
-    background: #f3ced4;
+    background: #f30014;
     width: 400px;
     margin: 50px 10px;
     height: 100px;
