@@ -60,18 +60,23 @@
     cursor: pointer;
     background: #d5d5d5;
 }
+
 .should-component-update-demo {
     position: relative;
 }
+
 .parent {
     color: #48702a
 }
+
 .no-prop {
     color: #573ee3
 }
+
 .has-prop {
     color: #f30014
 }
+
 .should-component-update-demo .parent-comp {
     background: #48702a;
     color: white;
@@ -80,6 +85,7 @@
     border: 1px dashed #222;
     padding: 10px;
 }
+
 .should-component-update-demo .child-no-props {
     background: #573ee3;
     color: white;
@@ -90,9 +96,11 @@
     margin: 20px;
     padding: 10px;
 }
+
 .should-component-update-demo button {
     color: #333;
 }
+
 .should-component-update-demo .child-props {
     background: #f30014;
     color: white;
@@ -103,21 +111,46 @@
     border: 0.5px dashed #111;
     padding: 10px;
 }
-.should-component-update-demo #console{
+
+.should-component-update-demo #console {
     position: relative;
     top: 0;
-    left:0;
+    left: 0;
     max-height: 300px;
     overflow: auto;
 }
+
 .should-component-update-demo .console {
     position: absolute;
     top: 0;
     left: 600px;
 }
+
 .pointer {
     cursor: pointer;
 }
+
 .menu a, .block {
     display: block;
+}
+
+.ddl {
+    width: 100px;
+    position: relative;
+}
+
+.ddl .btn-ddl {
+    width: 100%;
+    text-align: right;
+}
+
+.ddl .ddl-content {
+    width: 100%;
+    height: 20px;
+    text-align: right;
+    position: absolute;
+    background: #fff;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px #ccc;
 }
